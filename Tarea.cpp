@@ -2,16 +2,20 @@
 #include <string>
 #include <vector>
 
+using namespace std;
+
 int main(int argc, char const *argv[]) {
-  std::vector<int> v;
-  unsigned int a;
+  string s;
+  string linea;
+  cin >> s;
+  int p = stoi(s);//stoi, convierte string a int
+  cout << s << '\n'; //Numero de casos
   int x;
-  for(a = 0; a < 10; a++){
-    std::cin >> x;
-    v.push_back(x);
-  }
-  for(a = 0; a < v.size(); a++){
-    std::cout << v[a] + v[a+1] << '\n';
+  for(x = 0; x < 2*p; x++){//recorre todas las lineas
+    cin >> linea;
+    if (x % 2 == 0){
+      cout << linea << '\n';
+    }
   }
   return 0;
 }
