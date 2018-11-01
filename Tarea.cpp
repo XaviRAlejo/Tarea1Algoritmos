@@ -5,13 +5,20 @@
 
 using namespace std;
 
-void recoded(vector<char> str){//Recorre el vector string
-  unsigned int x;
-  str.push_back(str[0]);//mueve la primera letra al final
-  str.erase(str.begin());//elimina la primera letra actual
-  for(x = 0; x < str.size(); x++){
-    cout << str[x] << '\n';
+void print_vec(const vector<char> vec){
+  for(int i=0; i < vec.size();i++){
+    cout << vec[i] << " ";
   }
+  cout << "\n";
+}
+
+void recoded(vector<char>& salida, string str){//Recorre el vector string
+  unsigned int x;
+  cout << str << "\n";
+  for(x = 0; x < str.size(); x++){
+    salida.insert(salida.begin(),1,str[x]);
+  }
+  print_vec(salida);
 }
 
 double factorial(double n){
@@ -43,17 +50,18 @@ int main(int argc, char const *argv[]) {
     cin >> linea;
     if (x % 2 == 0){ //letras
       vector<char> str;
-      cout << "letra 0: " << linea[0]<< "\n";
+      cout << "linea: " << linea<< "\n";
       cout << "largo palabra: " << linea.length() << '\n';
       perm = factorial(linea.length());
       cout << "total permutacion: " << perm << "\n";
-      copy(linea.begin(), linea.end(), back_inserter(str));//Funcion que convierte el string en un vector, desde el inicio (begin), hasta el final (end)
-      recoded(str);
+      //copy(linea.begin(), linea.end(), back_inserter(str));//Funcion que convierte el string en un vector, desde el inicio (begin), hasta el final (end)
+      recoded(str,linea);
     }
     if (x % 2 != 0){ //permutacion que busco
       busq = stoi(linea);
       cout << "permutacion: " << busq << '\n';
     }
+    cout << "\n";
   }
   return 0;
 }
