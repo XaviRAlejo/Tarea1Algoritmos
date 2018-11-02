@@ -23,19 +23,33 @@ void coded(vector<char>& salida, string str){//Recorre el vector salida
 
 void recoded(vector<char>& deco,string linea,double perm, double busq, double nivel){
   double division = perm/(nivel+1);
+  double grupos = perm/(nivel+1);
+  double busca = busq;
+  cout << "permu1: " << perm << "\n";
+  cout << "nivel1: " << nivel << "\n";
+  cout << "div1: " << division << "\n";
+  cout << "busq: " << busq << "\n";
   for(int i=0; i <= deco.size();i++){
     if (busq < division){
       deco.insert(deco.begin() + i, 1, linea[0]);
       if (linea.size() != 0){
         linea.erase(0, 1);
+        cout << "permu: " << perm << "\n";
         cout << "nivel: " << nivel << "\n";
-        cout << "div: " << division << "\n";
+        cout << "grupos: " << grupos << "\n";
         cout << "i: " << i << "\n";
-        recoded(deco,linea,perm,busq,nivel+1);
+        print_vec(deco);
+        if (i!=0){
+          busca = busq - grupos*i - 1;
+          perm = perm - grupos*i;
+        }
+        else{
+          perm= perm - grupos*(i+1);
+        }
+        recoded(deco,linea,perm,busca,nivel+1);
         return;
       }
       else{
-        print_vec(deco);
         return;
       }
     }
