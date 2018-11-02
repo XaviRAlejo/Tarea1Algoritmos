@@ -23,25 +23,24 @@ void coded(vector<char>& salida, string str){//Recorre el vector salida
 
 void recoded(vector<char>& deco,string linea,double perm, double busq, double nivel){
   double division = perm/(nivel+1);
-  cout <<"size: " << deco.size() <<"\n";
-  cout <<"deco: ";
-  print_vec(deco);
-  for(int i=0; i<= deco.size();i++){
-    if (busq < division)
-    {
+  for(int i=0; i <= deco.size();i++){
+    if (busq < division){
       deco.insert(deco.begin() + i, 1, linea[0]);
       if (linea.size() != 0){
         linea.erase(0, 1);
-        cout << "linea: " << linea << "\n";
+        cout << "nivel: " << nivel << "\n";
+        cout << "div: " << division << "\n";
+        cout << "i: " << i << "\n";
         recoded(deco,linea,perm,busq,nivel+1);
+        return;
       }
       else{
+        print_vec(deco);
         return;
       }
     }
     else
     {
-      cout << "wea\n";
       division += perm / (nivel + 1);
     }
   }
