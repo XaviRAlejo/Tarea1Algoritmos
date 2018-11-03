@@ -29,8 +29,12 @@ void recoded(vector<char>& deco,string linea,double perm, double busq, double ni
   cout << "nivel1: " << nivel << "\n";
   cout << "div1: " << division << "\n";
   cout << "busq: " << busq << "\n";
+  if (division < 1)
+  {
+    return;
+  }
   for(int i=0; i <= deco.size();i++){
-    if (busq < division){
+    if (busq <= division){
       deco.insert(deco.begin() + i, 1, linea[0]);
       if (linea.size() != 0){
         linea.erase(0, 1);
@@ -40,11 +44,11 @@ void recoded(vector<char>& deco,string linea,double perm, double busq, double ni
         cout << "i: " << i << "\n";
         print_vec(deco);
         if (i!=0){
-          busca = busq - grupos*i - 1;
-          perm = perm - grupos*i;
+          busca = busq - grupos*i;
+          perm = perm - grupos*nivel;
         }
         else{
-          perm= perm - grupos*(i+1);
+          perm = perm - grupos*nivel;
         }
         recoded(deco,linea,perm,busca,nivel+1);
         return;
@@ -68,12 +72,7 @@ double factorial(double n){
   else{
     fact = n*factorial(n-1);
   }
-  if (fact >= pow(2,64)-1 ){
-    return (pow(2,64) - 1);
-  }
-  else{
-    return fact;
-  }
+  return fact;
 }
 
 int main(int argc, char const *argv[]) {
