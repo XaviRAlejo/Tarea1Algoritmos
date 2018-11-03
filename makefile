@@ -1,6 +1,6 @@
 all: tarea
 tarea: tarea.o
-	g++ tarea.o -o main
+	g++ tarea.o -o tarea
 %.o:  %.cpp
 	g++ -c $^ -Wall
 clean:
