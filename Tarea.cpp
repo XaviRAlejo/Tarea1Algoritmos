@@ -6,19 +6,10 @@
 using namespace std;
 
 void print_vec(const vector<char> vec){
-  for(int i=0; i < vec.size();i++){
+  for(unsigned int i=0; i < vec.size();i++){
     cout << vec[i] << "";
   }
   cout << '\n';
-}
-
-void coded(vector<char>& salida, string str){//Recorre el vector salida
-  unsigned int x;
-  for(x = 0; x < str.size(); x++){
-    //auto it = salida.begin();
-    salida.at(x) = '1';
-  }
-  print_vec(salida);
 }
 
 void recoded(vector<char>& deco,string linea,double perm, double busq, double nivel){
@@ -29,7 +20,7 @@ void recoded(vector<char>& deco,string linea,double perm, double busq, double ni
   {
     return;
   }
-  for(int i=0; i <= deco.size();i++){
+  for(unsigned int i=0; i <= deco.size();i++){
     if (busq <= division){
       deco.insert(deco.begin() + i, 1, linea[0]);
       if (linea.size() != 0){
