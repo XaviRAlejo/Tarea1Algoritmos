@@ -6,6 +6,11 @@
 
 using namespace std;
 
+float dist(Avion A1, Avion A2){
+    cout << "x: " << A1.x  << " , " << "y: " << A1.y << '\n';
+    return sqrt((A1.x - A2.x)*(A1.x - A2.x) + (A1.y - A2.y)*(A1.y - A2.y));
+}
+
 int main(int argc, char const *argv[]) {
     float s;
     Avion gumi;
@@ -21,8 +26,9 @@ int main(int argc, char const *argv[]) {
             flota.insert(flota.begin()+x, 1, gumi);
 
         }  
-        for (float i = 0; i < flota.size(); i++) {
-            get_coordenadas(flota[i]);
+        for (float i = 0; i < flota.size()-1; i++) {
+            float hola = dist(flota[i],flota[i+1]);
+            cout << "distancia: " << hola << "\n";
         }
     }
   
