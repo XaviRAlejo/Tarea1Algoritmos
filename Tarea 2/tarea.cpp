@@ -3,6 +3,7 @@
 #include <vector>
 #include <cmath>
 #include "avion.cpp"
+#include "Sort.cpp"
 
 using namespace std;
 
@@ -18,6 +19,9 @@ int main(int argc, char const *argv[]) {
 
     while(cin >> s) {
         vector<Avion> flota;
+        vector<Avion> temp;
+
+    
         int id = 0; //le da un id de identificacion al avión
         for (int x = 0; x < s; x++) {
             id++;
@@ -29,6 +33,12 @@ int main(int argc, char const *argv[]) {
         for (float i = 0; i < flota.size()-1; i++) {
             float hola = dist(flota[i],flota[i+1]);
             cout << "distancia: " << hola << "\n";
+        }
+        Sort(flota);
+
+        for (int y = 0; y < s; y++) {
+            cout << flota[y].id << '\n';
+            get_coordenadas(flota[y]);
         }
     }
   
