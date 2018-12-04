@@ -7,34 +7,22 @@
 using namespace std;
 
 int main(int argc, char const *argv[]) {
-    string s;
-    string linea;
-    string palabra;
-    cin >> s;
+    float s;
     Avion gumi;
-    vector<Avion> flota;
     float coord_x, coord_y;
-    int p = stoi(s);
-    int id = 0;
 
-    while(!s.empty()){
-        for (int x = 0; x < 2*p; x++) {
-        
-            cin >> linea;
-            if (x % 2 == 0) {
-                coord_x = stof(linea);
-            }
-            else if (x % 2 != 0) {
-                id++;
-                coord_y = stof(linea);
-                gumi.init_avion(id, coord_x, coord_y);
-            }
-        }
-        cin >> s;
-        p = stoi(s);
-        id = 0;
-        if (s.length() != 1){
-            s = "";
+    while(cin >> s) {
+        vector<Avion> flota;
+        int id = 0; //le da un id de identificacion al avión
+        for (int x = 0; x < s; x++) {
+            id++;
+            cin >> coord_x >> coord_y;
+            gumi.init_avion(id ,coord_x, coord_y);
+            flota.insert(flota.begin()+x, 1, gumi);
+
+        }  
+        for (float i = 0; i < flota.size(); i++) {
+            get_coordenadas(flota[i]);
         }
     }
   
