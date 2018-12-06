@@ -1,3 +1,6 @@
+#ifndef AVIONES
+#define AVIONES
+
 #include <iostream>
 
 
@@ -16,9 +19,12 @@ void Avion::init_avion(float code, float vertical, float horizontal) {
     id = code;
     x = vertical;
     y = horizontal;
-    cout << "El avion " << code << " se encuentra en las coordenadas: " << x << " , " << y << '\n';  
+    //cout << "El avion " << code << " se encuentra en las coordenadas: " << x << " , " << y << '\n';  
 
 }
 void get_coordenadas(Avion avion) {
     cout << "(" << avion.x << " , " << avion.y << ")" << '\n';
 }
+
+
+#endif
