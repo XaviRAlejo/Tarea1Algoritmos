@@ -21,7 +21,23 @@ double Lis(vector<int>& arreglo){
     return arreglo.size() - maximo;
 }
 
-
 int main(int argc, char const *argv[]){
+    int cantidad;
+    int num;
+    double maximo;
+    while (cin >> cantidad){
+        vector<int> secuencia;
+        for (int i = 0; i < cantidad; i++){
+            cin >> num;
+            secuencia.push_back(num);
+        }
 
+        maximo = Lis(secuencia);
+        cout << maximo << "\n";
+        /*for (float j = 0; j < secuencia.size(); j++){
+            cout << secuencia[j] << '\n';
+        }
+        cout << '\n';*/
+    }
+    return 0;
 }
