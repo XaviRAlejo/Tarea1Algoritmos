@@ -22,7 +22,7 @@ double Lis(vector<int>& arreglo){
 }
 
 int main(int argc, char const *argv[]){
-    int cantidad;
+    double cantidad;
     int num;
     double maximo;
     while (cin >> cantidad){
